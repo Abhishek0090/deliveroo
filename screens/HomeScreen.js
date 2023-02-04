@@ -9,14 +9,12 @@ import Featured from '../components/Featured';
 
 
 
-
 //tailwind variable for css //-> new version 
-
-const ViewContent = styled(View)
-const TextContent = styled(Text)
-const ImageContent = styled(Image)
-const InputContent = styled(TextInput)
-const ScrollContent = styled(ScrollView)
+ 
+// const Text = styled(Text)
+// const ImageContent = styled(Image)
+// const TextInput = styled(TextInput)
+// const ScrollContent = styled(ScrollView)
 
 const HomeScreen = () => {
 
@@ -36,42 +34,42 @@ const HomeScreen = () => {
     return (
         <SafeAreaView className='bg-white pt-5'>
             {/* Header style */}
-            <ViewContent className='flex-row pb-3 items-center mx-2 space-x-2 px-2'>
+            <View className='flex-row pb-3 items-center mx-2 space-x-2 px-2'>
 
-                <ImageContent
+                <Image
                     source={{
                         uri: 'https://links.papareact.com/wru'
                     }}
                     className='h-7 w-7 bg-gray-300 p-4  rounded-full'
                 />
 
-                <ViewContent className='flex-1'>
-                    <TextContent className='font-bold text-gray-400 text-xs'>
+                <View className='flex-1'>
+                    <Text className='font-bold text-gray-400 text-xs'>
                         Deliver now!
-                    </TextContent>
-                    <TextContent className='text-xl font-bold'>
+                    </Text>
+                    <Text className='text-xl font-bold'>
                         Current Location
                         <ChevronDownIcon size={20} color='#00CCBB' />
-                    </TextContent>
-                </ViewContent>
+                    </Text>
+                </View>
                 <UserIcon size={30} color='#00CCBB' />
-            </ViewContent>
+            </View>
 
             {/* {Search} */}
 
-            <ViewContent className='flex-row items-center space-x-2 pb-2  px-3 mx-2'>
-                <ViewContent className='flex-row space-x-2 bg-gray-200 p-2 items-center flex-1' >
+            <View className='flex-row items-center space-x-2 pb-2  px-3 mx-2'>
+                <View className='flex-row space-x-2 bg-gray-200 p-2 items-center' style={styles.container} >
                     <MagnifyingGlassIcon size={20} color='gray' />
-                    <InputContent placeholder='Restaurants and cuisines' keyboardType='default' />
-                </ViewContent>
+                    <TextInput placeholder='Restaurants and cuisines' keyboardType='default' />
+                </View>
                 <AdjustmentsHorizontalIcon size={20} color="#00CCBB" />
-            </ViewContent>
+            </View>
 
             {/* Content */}
 
-            <ScrollView  contentContainerStyle={{
-                paddingBottom  : 15
-            }}  style={styles.bgcolor}>
+            <ScrollView contentContainerStyle={{
+                paddingBottom: 15
+            }} classname="bg-gray-200">
 
                 {/* Categories */}
 
@@ -80,20 +78,20 @@ const HomeScreen = () => {
                 {/* Featured Rows */}
 
                 <Featured
-
+                    id={1}
                     title="Featured"
                     description="UWU Scibri doop dopp yes yes"
                 />
 
                 <Featured
-
-                    title="Featured"
+                    id={2}
+                    title="Tasty Discounts"
                     description="UWU Scibri doop dopp yes yes"
                 />
 
                 <Featured
-
-                    title="Featured"
+                    id={3}
+                    title="Offer Near You"
                     description="UWU Scibri doop dopp yes yes"
                 />
 
@@ -111,17 +109,17 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
     container: {
-      marginTop: 50,
+       flex : 1
     },
     bigBlue: {
-      color: 'blue',
-      fontWeight: 'bold',
-      fontSize: 30,
+        color: 'blue',
+        fontWeight: 'bold',
+        fontSize: 30,
     },
     red: {
-      color: 'red',
+        color: 'red',
     },
-    bgcolor : {
+    bgcolor: {
         // backgroundColor : '##d3d3d3'
     }
-  });
+});
