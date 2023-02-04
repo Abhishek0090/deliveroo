@@ -4,6 +4,7 @@ import { styled } from 'nativewind';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ChevronDownIcon, UserIcon, AdjustmentsVerticalIcon, AdjustmentsHorizontalIcon, MagnifyingGlassIcon } from "react-native-heroicons/outline";
+import Categories from '../components/Categories';
 
 
 
@@ -34,7 +35,7 @@ const HomeScreen = () => {
     return (
         <SafeAreaView className="bg-white pt-5">
             {/* Header style */}
-            <ViewContent className='flex-row pb-3 items-center mx-4 space-x-2 px-2'>
+            <ViewContent className='flex-row pb-3 items-center mx-2 space-x-2 px-2'>
 
                 <ImageContent
                     source={{
@@ -56,7 +57,8 @@ const HomeScreen = () => {
             </ViewContent>
 
             {/* {Search} */}
-            <ViewContent className="flex-row items-center space-x-2 pb-2 mx-4 px-3">
+
+            <ViewContent className="flex-row items-center space-x-2 pb-2  px-3 mx-2">
                 <ViewContent className="flex-row space-x-2 bg-gray-200 p-2 items-center flex-1" >
                     <MagnifyingGlassIcon size={20} color="gray" />
                     <InputContent placeholder='Restaurants and cuisines' keyboardType='default' />
@@ -66,9 +68,14 @@ const HomeScreen = () => {
 
             {/* Content */}
 
-            <ScrollContent>
+            <ScrollContent className="bg-gray-100 flex-1"
+                contentContainerStyle={{
+                    paddingBottom: 100
+                }} >
 
                 {/* Categories */}
+
+                <Categories />
 
                 {/* Featured Rows */}
             </ScrollContent>
