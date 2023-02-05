@@ -10,7 +10,7 @@ import Featured from '../components/Featured';
 
 
 //tailwind variable for css //-> new version 
- 
+
 // const Text = styled(Text)
 // const ImageContent = styled(Image)
 // const TextInput = styled(TextInput)
@@ -60,7 +60,7 @@ const HomeScreen = () => {
             <View className='flex-row items-center space-x-2 pb-2  px-3 mx-2'>
                 <View className='flex-row space-x-2 bg-gray-200 p-2 items-center' style={styles.container} >
                     <MagnifyingGlassIcon size={20} color='gray' />
-                    <TextInput placeholder='Restaurants and cuisines' keyboardType='default' />
+                    <TextInput placeholder='Restaurants and cuisines ' className="placeholder-gray-400 placeholder-opacity-75" keyboardType='default' />
                 </View>
                 <AdjustmentsHorizontalIcon size={20} color="#00CCBB" />
             </View>
@@ -109,7 +109,7 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
     container: {
-       flex : 1
+        flex: 1
     },
     bigBlue: {
         color: 'blue',
