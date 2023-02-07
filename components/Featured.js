@@ -18,7 +18,7 @@ const Featured = ({ title, description, id, featuredCategory }) => {
         
             </View>
 
-            <Text className="text-xs text-gray-500" style={{paddingLeft : '15px'}}>{description}</Text>
+            <Text className="text-xs text-gray-500" >{description}</Text>
 
             <ScrollView horizontal contentContainerStyle={{
                 paddingHorizontal: 15
@@ -87,3 +87,10 @@ const Featured = ({ title, description, id, featuredCategory }) => {
 }
 
 export default Featured
+
+
+const styles = StyleSheet.create({
+    correction  : {
+        paddingLeft  : '15px'
+    }
+})
