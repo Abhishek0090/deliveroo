@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { Text, View, Image, TextInput, ScrollView, _ScrollView, StyleSheet } from 'react-native';
 import { styled } from 'nativewind';
 import { useNavigation } from '@react-navigation/native';
@@ -6,30 +6,43 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { ChevronDownIcon, UserIcon, AdjustmentsVerticalIcon, AdjustmentsHorizontalIcon, MagnifyingGlassIcon } from "react-native-heroicons/outline";
 import Categories from '../components/Categories';
 import Featured from '../components/Featured';
+import { client as sanityClient } from '../sanitydb/sanity';
 
 
-
-//tailwind variable for css //-> new version 
-
-// const Text = styled(Text)
-// const ImageContent = styled(Image)
-// const TextInput = styled(TextInput)
-// const ScrollContent = styled(ScrollView)
-
+ 
 const HomeScreen = () => {
 
 
     const navigation = useNavigation();
 
+    const [featuredCategories, setFeaturedCategories] = useState([])
 
+
+    //when UI loads
     useLayoutEffect(() => {
         //for changing header 
         navigation.setOptions({
             headerShown: false
         });
 
-    }, [navigation])
+    }, [])
 
+    //when component loads
+    useEffect(() => {
+        sanityClient.fetch(`
+        *[_type == "featured"]{
+            ...,
+            restaurants[]->{
+                ...,
+                dishes[]->
+            }
+          
+        }`).then((data) => {
+            setFeaturedCategories(data);
+        });
+    }, []);
+
+    console.log(featuredCategories);
 
     return (
         <SafeAreaView className='bg-white pt-5'>
